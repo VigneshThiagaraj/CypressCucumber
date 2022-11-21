@@ -1,0 +1,38 @@
+{
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "description": "Cypress UI Automation framework with BDD cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run --env 'environment'='SIT' --browser chrome"
+  },
+  "author": "Vignesh",
+  "license": "ISC",
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "cypress": "^11.1.0",
+    "esbuild": "^0.15.15"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^14.0.0",
+    "cucumber-html-reporter": "^5.5.0"
+  },
+  "stepDefinitions" : [
+    "cypress/e2e/features/[filepath]/*/.{js,mjs,tx,tsx}",
+    "cypress/e2e/features/[filepath].{js,mjs,tx,tsx}",
+    "cypress/support/step_definitions/[filepath].{js,mjs,tx,tsx}"
+  ],
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson" : {
+      "generate" : true,
+      "outputFolder" : "cypress/cucumber-json",
+      "filePrefix" : "",
+      "fileSuffix" : ".cucumber"
+    }
+   },
+    "testFiles": "**/*.feature",
+    "json" : {
+      "enabled" : true
+    }
+}
